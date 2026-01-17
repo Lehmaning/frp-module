@@ -64,19 +64,19 @@ on_install() {
     ui_print "- Installed frpc only"
   fi
 
-  # Clean up
-  rm -rf /tmp/frp.tar.gz /tmp/frp
-
   # Copy config templates if not exists
   mkdir -p /data/local/tmp
   if [ ! -f "/data/local/tmp/frpc.ini" ]; then
-    cp $MODPATH/frpc.ini /data/local/tmp/frpc.ini
+    cp /tmp/frp/frp*/frpc.ini /data/local/tmp/frpc.ini
     ui_print "- Client config template copied to /data/local/tmp/frpc.ini"
   fi
   if [ "$INSTALL_SERVER" = true ] && [ ! -f "/data/local/tmp/frps.ini" ]; then
-    cp $MODPATH/frps.ini /data/local/tmp/frps.ini
+    cp /tmp/frp/frp*/frps.ini /data/local/tmp/frps.ini
     ui_print "- Server config template copied to /data/local/tmp/frps.ini"
   fi
+
+  # Clean up
+  rm -rf /tmp/frp.tar.gz /tmp/frp
 
   ui_print "- FRP binaries installed successfully"
 }
