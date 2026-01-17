@@ -1,0 +1,5 @@
+id=frp
+name=FRP Module
+version=v0.66.0
+versionCode=660
+description=FRP (Fast Reverse Proxy) module for Android with auto-download and boot start
